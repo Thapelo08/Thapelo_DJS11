@@ -8,6 +8,10 @@ export default function Header() {
         color: "#161616"
     }
 
+    function fakeLogOut() {
+        localStorage.removeitem("loggedin")
+    }
+
     return (
         <header>
             <Link className="" to="/">Thapelo Podcast</Link>
@@ -28,6 +32,7 @@ export default function Header() {
                     className="login-icon"
                     />
                     </Link>
+                    <button onClick={fakeLogOut}>X</button>
             </nav>
         </header>
     )
