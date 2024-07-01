@@ -18,7 +18,16 @@ export default function Header() {
                 >
                     About
                     </NavLink>
-                    
+                    <NavLink
+                    to="/favoriteEpisodes"
+                    style={({ isActive }) => isActive ? activeStyles : null}
+                    > Favorite Episodes
+                    </NavLink>
+                    <Link to="login" className="login-link">
+                    <img 
+                    className="login-icon"
+                    />
+                    </Link>
             </nav>
         </header>
     )
