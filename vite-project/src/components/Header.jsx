@@ -7,5 +7,20 @@ export default function Header() {
         textDecoration: "underline",
         color: "#161616"
     }
-    
+
+    return (
+        <header>
+            <Link className="" to="/">Thapelo Podcast</Link>
+            <nav>
+                <NavLink
+                to="/about"
+                style={({ isActive }) => isActive ? activeStyles : null}
+                >
+                    About
+                    </NavLink>
+                    
+            </nav>
+        </header>
+    )
+
 }
