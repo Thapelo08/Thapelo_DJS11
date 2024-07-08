@@ -4,7 +4,7 @@ import { loginUser } from "../../../api"
 
 
 export default function Login() {
-    const [loginFormData, setLoginDataForm] = React.useState({ email: "", password: ""})
+    const [loginFormData, setLoginFormData] = React.useState({ email: "", password: ""})
     const [status, setStatus] = React.useState("idle")
     const [error, setError] = React.useState(null)
 
@@ -24,5 +24,17 @@ export default function Login() {
            .catch(err => {
             setError(err)
            })
+           .finally(() => {
+            setStatus("idle")
+           })
     }
-}
+
+    function handleChange(e) {
+        const { name, value } = e.target
+        setLoginFormData(prev => ({
+           ...prev,
+           [name] : value
+        }))
+    }
+
+    
