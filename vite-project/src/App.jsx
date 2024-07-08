@@ -1,7 +1,8 @@
-import React from "rect";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Layout from "./components/Layout"
 import About from "./pages/About"
+import Login from "./pages/Login"
 
 
 
@@ -11,6 +12,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
           <Route path="about" element={<About />} />
+          <Route path="login"
+          element={<Login />} />
+
 
           
           </Route>
@@ -18,3 +22,5 @@ function App() {
      </BrowserRouter>
   )
 }
+
+export default App;
