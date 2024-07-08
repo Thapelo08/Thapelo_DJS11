@@ -37,4 +37,17 @@ export default function Login() {
         }))
     }
 
+    return (
+        <div className="login-container">
+            {
+                location.state?.message &&
+                <h3 className="login-error">{location.state.message}</h3>
+            }
+            <h1>Sign in to your account</h1>
+            {
+                error?.message &&
+                <h3 className="login-error">{error.message}</h3>
+            }
+        </div>
+    )
     
