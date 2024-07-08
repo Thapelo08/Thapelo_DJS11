@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable react/no-unknown-property */
 import React from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import { loginUser } from "../../../api"
@@ -16,7 +18,7 @@ export default function Login() {
         e.preventDefault()
         setStatus("pending")
         loginUser(loginFormData)
-           .then(data => {
+           .then(() => {
             setError(null)
             localStorage.setItem("loggedin", true)
             navigate(from, { replace: true })
@@ -48,6 +50,32 @@ export default function Login() {
                 error?.message &&
                 <h3 className="login-error">{error.message}</h3>
             }
+            
+            <form onSubmit={handleSubmit} className="login-form">
+                <input
+                name="email"
+                onChange={handleChange}
+                type="email"
+                placeholder="Email address"
+                value={loginFormData.email}
+                />
+                <input
+                name="password"
+                onChange={handleChange}
+                type="password"
+                placeholder="Password"
+                vallue={loginFormData.password}
+                />
+                <button
+                disabled={status === "submitting"}
+                >
+                    {status === "submitting"
+                        ? "Logging in..."
+                        : "Log in"
+                    }
+                </button>
+            </form>
         </div>
     )
+}
     
