@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-
+import useFavorites from "../Favorites";
 
 const genres = {
     1: "Personal Growth",
@@ -14,3 +14,17 @@ const genres = {
     9: "Kids and Family",
 };
 
+const Favorite = () => {
+    const { favorites, removeFavorite } = useFavorites(); // custom hook for managing favorites
+    const [sortOption, setSortOption] = useState('');
+    const [genreOption, setGenreOption] = useState('');
+
+    const handleRemoveFavorites = (podcastId) => {
+        removeFavorite(podcastId);
+    };
+
+    const handleSortChange = (e) => {
+        setSortOption(e.target.value);
+    };
+    
+}
