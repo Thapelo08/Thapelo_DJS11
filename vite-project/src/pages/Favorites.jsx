@@ -81,6 +81,14 @@ const Favorite = () => {
                                 {podcast.title}
                                 </Link>
                             </h3>
+                            <p><strong>Genres:</strong> {displayGenres(podcast.genres)}</p>
+                            <p><strong>Last Udpdated:</strong> {podcast.updated}</p>
+                            <button
+                            onClick={() => handleRemoveFavorites(podcast.id)}
+                            className="remove-favorites"
+                            >
+                                Remove from Favorites
+                            </button>
                         </div>
                 </div>
             ))}
@@ -88,6 +96,8 @@ const Favorite = () => {
 
         )}
     </div>
-   )
+   );
     
-}
+};
+
+export default Favorite;
