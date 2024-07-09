@@ -56,7 +56,17 @@ const Favorite = () => {
                     <option value="Oldest">Oldest</option>
                 </select>
             </div>
+            <div className="filter-option">
+                <label>Filter By Genre:</label>
+                <select onChange={handleSortChange} value={sortOption}>
+                    <option value="">All Genres</option>
+                    {Object.entries(genres).map(([key, value]) => (
+                        <option key={key} value={key}>{value}</option>
+                       ))}
+                </select>
+            </div>
         </div>
+        
     </div>
    )
     
