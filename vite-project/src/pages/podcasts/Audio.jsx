@@ -50,7 +50,23 @@ const Audio = ({ audioUrl, title }) => {
         audioRef.currentTime = seekTime;
         setCurrentTime(seekTime);
     };
-    
-    )
-    })
-}
+
+    return (
+        <div className="audio-player">
+            <h2>{title}</h2>
+            <div className="controls">
+                <button onClick={togglePlay}>
+                    {isPlaying ? "Pause" : "Play"}
+                </button>
+                <input
+                type="range"
+                value={currentTime}
+                max={duration || 0}
+                onChange={handleSeek}
+                />
+                <span>{formatTime(currentTime)}</span> / <span>{formatTime(duration)}</span>
+            </div>
+            <audio ref={audioRef} src={audioUrl} />
+        </div>
+    );
+    };
