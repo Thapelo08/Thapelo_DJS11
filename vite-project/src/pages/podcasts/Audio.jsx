@@ -7,6 +7,16 @@ const Audio = ({ audioUrl, title }) => {
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
 
-    
+    useEffect(() => {
+        const audio = audioRef.current;
+
+        const handleLoadedMetadata = () => {
+            setDuration(audio.duration);
+        };
+
+        const handleTimeUpdate = () => {
+            setCurrentTime(audio.currentTime);
+        };
+    })
     })
 }
