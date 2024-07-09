@@ -36,5 +36,10 @@ const Favorite = () => {
     if(sortOption === 'Oldest') return new Date (a.updated) - new Date (b.updated);
     return 0;
    });
+
+   //Helper function to display formatted genres
+   const getGenres = (genres) => {
+    return genres.join(", ");
+   };
     
 }
