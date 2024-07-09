@@ -26,5 +26,15 @@ const Favorite = () => {
     const handleSortChange = (e) => {
         setSortOption(e.target.value);
     };
+
+   const filteredFavorites = favorites
+   .filter(podcast => genreOption === '' || podcast.genres.includes(genres[genreOption]))
+   .sort((a, b) => {
+    if(sortOption === 'A-Z') return a.title.localeCompare(b.title);
+    if(sortOption === 'Z-A') return b.title.localeCompare(a.title);
+    if(sortOption === 'Newest') return new Date(b.updated) - new Date(a.updated);
+    if(sortOption === 'Oldest') return new Date (a.updated) - new Date (b.updated);
+    return 0;
+   });
     
 }
