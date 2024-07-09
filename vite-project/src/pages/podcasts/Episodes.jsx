@@ -32,5 +32,12 @@ if (isLoading) {
 if (fetchError) {
     return <div>{fetchError}</div>;
 } 
+
+const currentSeason = episodes.seasons.find(item => item.season === season);
+
+if (!currentSeason) {
+    return <div>Season {season} not found.</div>;
+}
+
 }
 
