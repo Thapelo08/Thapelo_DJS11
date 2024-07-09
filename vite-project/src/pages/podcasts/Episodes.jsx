@@ -9,6 +9,19 @@ const Episodes = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [fetchErrror, setFetchError] = useState(null);
 
-
+useEffect(() => {
+    const fetchEpisodes = async () => {
+        try {
+            const data = await getEpisodesBySeason(id);
+            setEpisodes(data);
+        } catch (error) {
+            console.error("Error fetching episodes:", error);
+            setFetchError("Failed to retrieve episodes.");
+        } finally {
+            setIsLoading(false);
+        }
+    };
+    
+})
 }
 
