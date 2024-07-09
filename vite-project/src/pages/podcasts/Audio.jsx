@@ -20,6 +20,24 @@ const Audio = ({ audioUrl, title }) => {
 
         audio.addEventListener("loadedmetaData", handleLoadedMetadata);
         audio.addEventListener("timeupdate", handleTimeUpdate);
-    })
+
+        return () => {
+            audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
+            audio.removeEventListener("timeupdate", handleTimeUpdate);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (isPlaying) {
+            audioRef.current.play();
+        } else {
+            audioRef.current.pause();
+        }
+    }, [isPlaying]);
+
+    const togglePlay = () => {
+        setIsPlaying(!isPlaying);
+    };
+    
     })
 }
