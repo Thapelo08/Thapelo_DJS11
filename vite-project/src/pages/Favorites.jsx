@@ -66,7 +66,27 @@ const Favorite = () => {
                 </select>
             </div>
         </div>
-        
+        {filteredFavorites.length === 0 ? (
+            <div className="no-favorites">No favorites selected.</div>
+        ) : (
+           <div className="favorites-container">
+            {filteredFavorites.map((podcast) => (
+                <div key={podcast.id} className="favorite-item">
+                    <div className="favorite-image">
+                        <img src={podcast.image} alt={podcast.title} />
+                        </div>
+                        <div className="favorite-details">
+                            <h3>
+                                <Link to={`/show/${podcast.id}`} className="favorite-link">
+                                {podcast.title}
+                                </Link>
+                            </h3>
+                        </div>
+                </div>
+            ))}
+           </div>
+
+        )}
     </div>
    )
     
