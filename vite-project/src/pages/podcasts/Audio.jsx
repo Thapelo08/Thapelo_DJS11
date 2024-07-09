@@ -17,6 +17,9 @@ const Audio = ({ audioUrl, title }) => {
         const handleTimeUpdate = () => {
             setCurrentTime(audio.currentTime);
         };
+
+        audio.addEventListener("loadedmetaData", handleLoadedMetadata);
+        audio.addEventListener("timeupdate", handleTimeUpdate);
     })
     })
 }
