@@ -43,6 +43,14 @@ const Audio = ({ audioUrl, title }) => {
         const minutes = Math.floor(time / 60);
         const seconds = Math.floor(time % 60);
         return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
-    }
+    };
+
+    const handleSeek = (e) => {
+        const seekTime = parseFloat(e.target.value);
+        audioRef.currentTime = seekTime;
+        setCurrentTime(seekTime);
+    };
+    
+    )
     })
 }
