@@ -41,5 +41,23 @@ const Favorite = () => {
    const getGenres = (genres) => {
     return genres.join(", ");
    };
+
+   return ( 
+    <div className="favorites-list">
+        <h2>Favorite Podacasts</h2>
+        <div className="filter-bar">
+            <div className="filter-option">
+                <label>Sort By:</label>
+                <select onChange={handleSortChange} value={sortOption}>
+                    <option value="">Select</option>
+                    <option value="A-Z">A-Z</option>
+                    <option value="Z-A">Z-A</option>
+                    <option value="Newest">Newest</option>
+                    <option value="Oldest">Oldest</option>
+                </select>
+            </div>
+        </div>
+    </div>
+   )
     
 }
