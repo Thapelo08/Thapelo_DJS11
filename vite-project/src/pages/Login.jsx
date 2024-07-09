@@ -2,7 +2,7 @@
 /* eslint-disable react/no-unknown-property */
 import React from "react"
 import { useLocation, useNavigate } from "react-router-dom"
-import { loginUser } from "../../../api"
+import { loginUser } from "../api"
 
 
 export default function Login() {
