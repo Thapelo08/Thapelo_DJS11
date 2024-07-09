@@ -70,3 +70,10 @@ const Audio = ({ audioUrl, title }) => {
         </div>
     );
     };
+
+    Audio.propTypes = {
+        audioUrl: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+    };
+
+    export default Audio;
