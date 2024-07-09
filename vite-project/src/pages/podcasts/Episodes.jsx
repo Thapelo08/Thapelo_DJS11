@@ -7,7 +7,7 @@ const Episodes = () => {
     const { id, season } = useParams();
     const [episodes, setEpisodes ] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [fetchErrror, setFetchError] = useState(null);
+    const [fetchError, setFetchError] = useState(null);
 
 useEffect(() => {
     const fetchEpisodes = async () => {
@@ -21,7 +21,16 @@ useEffect(() => {
             setIsLoading(false);
         }
     };
-    
-})
+
+    fetchEpisodes();
+}, [id]);
+
+if (isLoading) {
+    return <div>Loading...</div>;
+}
+
+if (fetchError) {
+    return <div>{fetchError}</div>;
+} 
 }
 
