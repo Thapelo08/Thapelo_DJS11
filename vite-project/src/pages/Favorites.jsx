@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import useFavorites from "";
+import useFavorites from "../useFavorites";
 
 const genres = {
     1: "Personal Growth",
