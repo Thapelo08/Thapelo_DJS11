@@ -26,4 +26,31 @@ const ShowDetails = () => {
     if (fetchError) {
         return <div>{fetchError}</div>;
     }
-}
+
+    return (
+        <div className="show-details">
+            {show && (
+                <>
+                <h1>{show.title}</h1>
+                <div className="show-info">
+                    <img src={show.image} alt={show.title} />
+                    <p>{show.description}</p>
+                </div>
+                <div className="season-list">
+                    <h2>Seasons</h2>
+                    {show.seasons.map((season) => (
+                        <button key={season.season} className="season-button">
+                            <Link to={`/show/${id}/season/${season.season}`}>
+                            Season {season.season}
+                            </Link>
+                        </button>
+                    ))}
+                </div>
+                  <Link to="/">Back to Previews</Link>
+                </>
+            )}
+        </div>
+    );
+};
+
+export default ShowDetails;
