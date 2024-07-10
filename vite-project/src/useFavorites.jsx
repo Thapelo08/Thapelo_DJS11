@@ -30,4 +30,13 @@ const useFavorites = () => {
     const removeFavorite = (podcastId) => {
         const updatedFavorites = favorites.filter((fav) => fav.id === podcastId);
     };
-}
+
+    // check if a podcast is in favorrites
+    const isFavorite = (podcastId) => {
+        return favorites.some((fav) => fav.id === podcastId);
+    };
+
+    return { favorites, addFavorite, removeFavorite, isFavorite };
+};
+
+export default useFavorites;
