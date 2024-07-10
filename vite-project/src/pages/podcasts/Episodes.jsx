@@ -39,5 +39,22 @@ if (!currentSeason) {
     return <div>Season {season} not found.</div>;
 }
 
-}
+return (
+    <div className="episodes">
+        <h1>Episodes for Season {season}</h1>
+        <ul className="episodes-list">
+            {currentSeason.episodes.map((episode) => (
+                <li key={episode.id} className="episode-item">
+                    <h3>{episode.title}</h3>
+                    <p>{episode.description}</p>
+                    <Audio audioUrl={episode.file} title={episode.title} />
+                </li>
+            ))}
+        </ul>
+        <Link to={`/show/${id}`}>Back to Show</Link>
+    </div>
+);
+};
+
+export default Episodes;
 

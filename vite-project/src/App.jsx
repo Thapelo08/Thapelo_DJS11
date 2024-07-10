@@ -4,6 +4,8 @@ import Layout from "./components/Layout"
 import About from "./pages/About"
 import Home from "./pages/Home"
 import Login from "./pages/Login"
+import Favorites from "./pages/Favorites"
+
 
 
 
@@ -17,6 +19,7 @@ function App() {
           <Route path="login"
           element={<Login />} />
           <Route path="home" element={<Home />} />
+          <Route path="favorites" element={<Favorites />} />
 
 
           
