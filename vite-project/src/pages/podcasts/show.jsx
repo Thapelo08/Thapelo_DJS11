@@ -23,6 +23,10 @@ const ShowDetails = () => {
         fetchShowDetails();
     }, [id]);
 
+    if (isLoading) {
+        return <div>Loading...</div>;
+      }
+
     if (fetchError) {
         return <div>{fetchError}</div>;
     }
