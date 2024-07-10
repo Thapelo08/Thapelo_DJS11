@@ -22,4 +22,8 @@ const ShowDetails = () => {
         };
         fetchShowDetails();
     }, [id]);
+
+    if (fetchError) {
+        return <div>{fetchError}</div>;
+    }
 }
