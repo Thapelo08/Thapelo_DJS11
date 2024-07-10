@@ -17,4 +17,17 @@ const useFavorites = () => {
     useEffect(() => {
         localStorage.setItem(FAVORITES_KEY, JSON.stringify(favorites));
     }, [favorites]);
+
+    //Add a podcast to favorites
+    const addFavorite = (podcast) => {
+        if (!favorites.some((fav) => fav.id === podcast.id)) {
+            const updatedFavorites = [...favorites,podcast];
+            setFavorites(updatedFavorites);
+        }
+    };
+
+    // Remove a podcast from Favorites
+    const removeFavorite = (podcastId) => {
+        const updatedFavorites = favorites.filter((fav) => fav.id === podcastId);
+    };
 }
