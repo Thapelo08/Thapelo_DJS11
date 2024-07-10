@@ -67,4 +67,4 @@ export async function getEpisodesBySeason(id, season) {
     const data = await res.json();
     return data;
 
-    
+}
