@@ -1,4 +1,23 @@
 // src/api/index.js
+
+export async function loginUser(creds) {
+    const res = await fetch("/api/login",
+        { method: "post", body: JSON.stringify(creds) }
+    )
+    const data = await res.json()
+
+    if (!res.ok) {
+        throw {
+            message: data.message,
+            statusText: res.statusText,
+            status: res.status
+        }
+    }
+
+    return data
+}
+
+
 export async function getPreviews() {
     const url = "https://podcast-api.netlify.app/";
     const res = await fetch(url);
@@ -47,4 +66,5 @@ export async function getEpisodesBySeason(id, season) {
     }
     const data = await res.json();
     return data;
-}
+
+    
