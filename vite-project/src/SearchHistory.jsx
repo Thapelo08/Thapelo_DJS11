@@ -25,4 +25,8 @@ const useSearchHistory = () => {
         localStorage.removeItem(SEARCH_HISTORY_KEY);
     };
 
-}
+    return { searchHistory, addSearchQuery, clearSearchHistory };
+
+};
+
+export default useSearchHistory;
