@@ -109,7 +109,18 @@ const Previews = () => {
       const applySearchFilter = (query) => {
         const filterd = podcasts.filter((podcast) => 
         podcast.title.toLowerCase().includes(query.toLowerCase())
-    )
+    );
+    setDisplayedPodcasts(filtered);
+      };
+
+      const formatDate = (dateString) => {
+        const options = { year: "numeric", month: "long", day: "numeric" };
+        return new Date(dateString).toLocaleDateString(undefined, options);
+      };
+
+      if (isLoading) {
+        return <di>Loading...</di>;
       }
 
+      
 }
