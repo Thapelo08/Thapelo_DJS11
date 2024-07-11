@@ -11,5 +11,13 @@ const useSearchHistory = () => {
             setSearchHistory(JSON.parse(storedHistory));
         }
     }, []);
+
+    const addSearchQuery = (query) => {
+        // Remove duplicates and place the new query at the beginning
+        const updatedHistory = [query, ...searchHistory.filter(item => item !== query)];
+        setSearchHistory(updatedHistory);
+        localStorage.setItem(SEARCH_HISTORY_KEY, JSON.stringify(updatedHistory));
+    };
+
     
 }
