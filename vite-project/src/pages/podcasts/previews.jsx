@@ -12,4 +12,7 @@ const Previews = () => {
     const [sortOption, setSortOption] = useState("All");
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedGenre, setSelectedGenre] = useState("All");
+
+    const { isFavorite, addFavorite, removeFavorite } = useFavorites();
+    const { searchHistory, addSearchQuery, clearSearchHistory } = useSearchHistory();
 }
