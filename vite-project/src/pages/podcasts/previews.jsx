@@ -45,4 +45,30 @@ const Previews = () => {
         loadPodcasts();
       }, []);
 
+      useEffect(() => {
+        const sortPodcasts = (option, data) => {
+            let sortedData = [...data];
+            switch (option) {
+                case "A-Z":
+                sortedData.sort((a, b) => a.title.localeCompare(b.title));
+                break;
+                case "Z-A":
+                sortedData.sort((a, b) => b.title.localeCompare(a.title));
+                break;
+                case "Newest":
+                    sortedData.sort((a, b) => new Date (b.updated) - new Date(a.updated));
+                    break;
+                    case "Oldest":
+                        sortedData.sort((a, b) => new Date(a.updated) - new Date(b.updated));
+                        break;
+                        default:
+                            sortedData = podcasts;
+
+            }
+            return sortedData; 
+        };
+
+        setDisplayedPodcasts(sortPodcasts(sortOption,podcasts));
+      }, [sortOption, podcasts]);
+
 }
