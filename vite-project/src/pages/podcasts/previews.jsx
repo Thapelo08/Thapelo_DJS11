@@ -96,6 +96,14 @@ const Previews = () => {
             addFavorite(podcast);
         }
       };
-      
+
+      const handleSearchChange = (event) => {
+        setSearchQuery(event.target.value);
+      };
+
+      const handleSearchSubmit = (event) => {
+        event.preventDefault();
+        addSearchQuery(searchQuery);
+      };
 
 }
