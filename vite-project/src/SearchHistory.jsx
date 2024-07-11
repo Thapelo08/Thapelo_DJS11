@@ -19,5 +19,10 @@ const useSearchHistory = () => {
         localStorage.setItem(SEARCH_HISTORY_KEY, JSON.stringify(updatedHistory));
     };
 
-    
+
+    const clearSearchHistory = () => {
+        setSearchHistory([]);
+        localStorage.removeItem(SEARCH_HISTORY_KEY);
+    };
+
 }
