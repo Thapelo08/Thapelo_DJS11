@@ -88,4 +88,14 @@ const Previews = () => {
         setSortOption(option);
       };
 
+      const handleFavoriteToggle = (podcast, event) => {
+        event.preventDefault();
+        if (isFavorite(podcast.id)) {
+            removeFavorite(podcast.id);
+        } else {
+            addFavorite(podcast);
+        }
+      };
+      
+
 }
