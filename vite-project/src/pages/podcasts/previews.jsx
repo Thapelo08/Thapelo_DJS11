@@ -107,7 +107,7 @@ const Previews = () => {
       };
 
       const applySearchFilter = (query) => {
-        const filterd = podcasts.filter((podcast) => 
+        const filtered = podcasts.filter((podcast) => 
         podcast.title.toLowerCase().includes(query.toLowerCase())
     );
     setDisplayedPodcasts(filtered);
@@ -169,9 +169,32 @@ const Previews = () => {
                         </li>
                     ))}
                 </ul>
+                <button onClick={clearSearchHistory}>Clear Search History</button>
             </div>
-        </div>
-      )
+            <ul className="podcast-list">
+                {displayedPodcasts.map((podcast) => (
+                  <li key={podcast.id} className="podcast-item">
+                    <Link to={`/show/${podcast.id}`} className="podcast-link">
+                    <div className="podcast-image">
+                        <img src={podcast.image} alt={podcast.title} />
+                    </div>
+                    <div className="podcast-details">
+                      <h3>{podcast.title}</h3>
+                      <div className="actons-buttons">
 
-      
-}
+                      </div>
+                      <p>
+                        Genres:{" "}
+                        {podcast.genres.map((genreId) => genres[genreId]).join(", ")}
+                      </p>
+                      <p>Last Updated: {formatDate(podcast.updated)}</p>
+                    </div>
+                    </Link>
+                  </li>  
+                ))}
+            </ul>
+        </div>
+      );
+};
+
+export default Previews;
