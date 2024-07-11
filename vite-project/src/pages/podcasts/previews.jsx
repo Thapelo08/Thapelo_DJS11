@@ -122,5 +122,56 @@ const Previews = () => {
         return <di>Loading...</di>;
       }
 
+      if (fetchError) {
+        return <div>{fetchError}</div>;
+      }
+
+      return (
+        <div className="previews">
+            <h1>Browse Podcasts</h1>
+            <div className="filter-bar">
+                <div className="genre-filter">
+                    <select onChange={(e) => handleSortChange(e.target.value)}>
+                    <option value="All">All</option>
+            <option value="A-Z">A-Z</option>
+            <option value="Z-A">Z-A</option>
+            <option value="Newest">Newest</option>
+            <option value="Oldest">Oldest</option> 
+                    </select>
+                    <select onChange={handleGenreChange} value={selectedGenre}>
+                    <option value="All">All Genres</option>
+            {Object.entries(genres).map(([id, title]) => (
+              <option key={id} value={id}>
+                {title}
+              </option>
+            ))} 
+                    </select>
+                </div>
+                <div className="search-bar">
+                    <form onSubmit={handleSearchSubmit}>
+                        <input 
+                        type="text"
+                        placeholder="Search podcasts..."
+                        value={searchQuery}
+                        onChange={handleSearchChange}
+                        style={{ borderRadius: "50px"}} 
+                        />
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+            <div className="Search-history">
+                <h3>Search History</h3>
+                <ul>
+                    {searchHistory.map((query, index) => (
+                        <li key={index} onClick={() => applySearchFilter(query)}>
+                            {query}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+      )
+
       
 }
