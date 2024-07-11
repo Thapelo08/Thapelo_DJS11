@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import { getPreviews } from "../../api";
 import useFavorites from "../../useFavorites";
@@ -72,7 +72,7 @@ const Previews = () => {
       }, [sortOption, podcasts]);
 
       const handleGenreChange = (event) => {
-        const grenreId = event.target.value;
+        const genreId = event.target.value;
         setSelectedGenre(genreId);
         if (genreId === "All") {
            setDisplayedPodcasts(podcasts);
