@@ -106,4 +106,10 @@ const Previews = () => {
         addSearchQuery(searchQuery);
       };
 
+      const applySearchFilter = (query) => {
+        const filterd = podcasts.filter((podcast) => 
+        podcast.title.toLowerCase().includes(query.toLowerCase())
+    )
+      }
+
 }
