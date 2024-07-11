@@ -71,4 +71,21 @@ const Previews = () => {
         setDisplayedPodcasts(sortPodcasts(sortOption,podcasts));
       }, [sortOption, podcasts]);
 
+      const handleGenreChange = (event) => {
+        const grenreId = event.target.value;
+        setSelectedGenre(genreId);
+        if (genreId === "All") {
+           setDisplayedPodcasts(podcasts);
+        } else {
+            const filtered = podcasts.filter((podcast) =>
+            podcast.genres.includes(parseInt(genreId))
+        );
+        setDisplayedPodcasts(filtered);
+        }
+      };
+
+      const handleSortChange = (option) => {
+        setSortOption(option);
+      };
+
 }
