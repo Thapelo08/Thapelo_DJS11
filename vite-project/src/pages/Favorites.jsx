@@ -19,13 +19,17 @@ const Favorite = () => {
     const [sortOption, setSortOption] = useState('');
     const [genreOption, setGenreOption] = useState('');
 
-    const handleRemoveFavorites = (podcastId) => {
+    const handleRemoveFavorite = (podcastId) => {
         removeFavorite(podcastId);
     };
 
     const handleSortChange = (e) => {
         setSortOption(e.target.value);
     };
+
+    const handleGenreChange = (e) => {
+        setGenreOption(e.target.value);
+      };
 
    const filteredFavorites = favorites
    .filter(podcast => genreOption === '' || podcast.genres.includes(genres[genreOption]))
@@ -38,7 +42,7 @@ const Favorite = () => {
    });
 
    //Helper function to display formatted genres
-   const getGenres = (genres) => {
+   const displayGenres = (genres) => {
     return genres.join(", ");
    };
 
@@ -58,7 +62,7 @@ const Favorite = () => {
             </div>
             <div className="filter-option">
                 <label>Filter By Genre:</label>
-                <select onChange={handleSortChange} value={sortOption}>
+                <select onChange={handleGenreChange} value={sortOption}>
                     <option value="">All Genres</option>
                     {Object.entries(genres).map(([key, value]) => (
                         <option key={key} value={key}>{value}</option>
@@ -84,7 +88,7 @@ const Favorite = () => {
                             <p><strong>Genres:</strong> {displayGenres(podcast.genres)}</p>
                             <p><strong>Last Udpdated:</strong> {podcast.updated}</p>
                             <button
-                            onClick={() => handleRemoveFavorites(podcast.id)}
+                            onClick={() => handleRemoveFavorite(podcast.id)}
                             className="remove-favorites"
                             >
                                 Remove from Favorites
