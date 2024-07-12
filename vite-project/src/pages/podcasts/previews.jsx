@@ -1,8 +1,12 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect} from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart as faHeart, faHeart as regularHeart } from '@fortawesome/free-solid-svg-icons';
 import { getPreviews } from "../../api";
 import useFavorites from "../../useFavorites";
-import useSearchHistory from ""
+import useSearchHistory from "../../SearchHistory"
+
 
 const Previews = () => {
     const [podcasts, setPodcasts] = useState([]);
@@ -181,6 +185,14 @@ const Previews = () => {
                     <div className="podcast-details">
                       <h3>{podcast.title}</h3>
                       <div className="actons-buttons">
+                        <FontAwesomeIcon
+                        icon={isFavorite(podcast.id)
+                          ? faHeart :  regularHeart }
+                          className={`favorite-icon ${
+                            isFavorite(podcast.id) ? "favorite" : "" 
+                          }`}
+                          onClick={(e) => handleFavoriteToggle(podcast, e)}
+                          />
 
                       </div>
                       <p>

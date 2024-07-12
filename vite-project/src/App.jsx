@@ -1,11 +1,13 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Layout from "./components/Layout"
-import About from "./pages/About"
 import Home from "./pages/Home"
+import About from "./pages/About"
+import Previews from "./pages/podcasts/previews";
 import Login from "./pages/Login"
 import Favorites from "./pages/Favorites"
-import Show from "./pages/podcasts/Show"
+import Layout from "./components/Layout"
+import Show from "./pages/podcasts/show"
+import Episodes from "./pages/podcasts/Episodes"
 
 
 
@@ -17,11 +19,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
           <Route path="about" element={<About />} />
+          <Route path="favorites" element={<Favorites />} />
+          <Route path="previews" element={<Previews />} />
           <Route path="login"
           element={<Login />} />
           <Route path="home" element={<Home />} />
-          <Route path="show" element={<Show />} />
-          <Route path="favorites" element={<Favorites />} />
+          <Route path="show/:id" element={<Show />} />
+          <Route path="show/:id/season/:season" element={<Episodes/>} /> 
+          
           
 
 
@@ -33,3 +38,5 @@ function App() {
 }
 
 export default App;
+
+

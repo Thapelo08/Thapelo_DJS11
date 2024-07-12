@@ -30,11 +30,11 @@ header {
   display: flex;
   align-items: center;
   padding: 10px;
-  background-color: black;
+  background-color: Brown;
 }
 
 header .site-logo {
-  color: #ee49e3;
+  color: #f0f0f0;
   margin-right: auto;
   text-transform: uppercase;
   font-weight: 900;
@@ -49,7 +49,7 @@ a.active-link {
 
 header a {
   text-decoration: none;
-  color: #e22fd9;
+  color: #007bff;
   font-weight: 600;
   padding: 5px 20px;
 }
@@ -59,8 +59,8 @@ header a:hover {
 }
 
 footer {
-  background-color: #161616;
-  color: #e22fd9;
+  background-color: brown;
+  color: #007bff;
   height: 74px;
   display: flex;
   justify-content: center;
