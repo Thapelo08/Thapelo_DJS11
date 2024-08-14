@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getShowDetails } from "../../api";
+import AudioPlayer from './AudioPlayer'
+
 
 const ShowDetails = () => {
     const { id } = useParams();

@@ -9,6 +9,7 @@ import Favorites from "./pages/Favorites"
 import Layout from "./components/Layout"
 import Show from "./pages/podcasts/show"
 import Episodes from "./pages/podcasts/Episodes"
+import AudioPlayer from "./components/AudioPlayer";
 
 
 
